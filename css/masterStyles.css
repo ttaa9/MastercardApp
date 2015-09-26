@@ -5,14 +5,32 @@
 }
 
 .main-pic {
+	background-image:url("../img/leaf.png");
 }
 
 .quote {
 	font-size:xx-large;
-	margin:150px 10px 20px 10px;
+	margin:125px 10px 20px 10px;
 	text-align:center;
+	font-weight:bold;
 }
 
 .author {
-	
+	font-size:large;
+	margin:0px 10px 70px 10px;
+	text-align:center;
 }	
+
+.login {
+	text-align:center;
+	margin: 0px 0px 0px 0px;
+}
+
+#accordion1 {
+	text-align:center;
+}
+
+.col-centered{
+    margin: 0 auto;
+    float:none;
+}
