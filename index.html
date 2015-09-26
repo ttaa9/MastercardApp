@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home</title>
+<title>Welcome</title>
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
@@ -26,50 +26,85 @@
       <div class="proj-name"><img src="img/mc.png" height="25px"/> Spend to Save</div> 
     </div>
     
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Collect the nav links, forms, and other content for toggling 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a> </li>
         <li><a href="donations.html">Donation Manager</a> </li>
         <li><a href="charities.html">Charity Settings</a> </li>
       </ul>
-      <!--<ul class="nav navbar-nav navbar-right">
-        <li><a href="#profile">Profile</a> </li>
-        <li><a href="#">Logout</a> </li>
-      </ul>-->
-    </div>
+    </div>-->
     <!-- /.navbar-collapse --> 
   </div>
   <!-- /.container-fluid --> 
 </nav>
-<div class="container-fluid">
+<div class="container-fluid main-pic" style="margin-top:-50px;">
   <div class="row">
-    <div class="col-lg-12 main-pic">
+    <div class="col-lg-12">
        <div class="quote">
-       		"No one becomes poor from giving"
+       		Spend to Save 
        </div>
+       <div class="author"> 
+       		Put your spending habits to good use
+       </div>
+       <div class="login"> 
+       		<a class="accordion-toggle"
+       			data-toggle="collapse"
+       			data-parent="#accordion1"
+       			href="#collapseOne" style="text-decoration:none;">
+                <button type="button" class="btn btn-default btn-md"> Get Started </button></a>
+       </div>
+       <div class="panel-group" id="accordion1" style="margin-bottom:50px;">
+       		<div class="panel panel-default" style="background: none; border:none;">
+       			<div id="collapseOne" class="panel-collapse collapse" >
+       		    	<div class="panel-body" style="display:inline;">
+                    	<div class="row">
+                    		<div class="col-md-2 col-centered">
+                        		<div class="input-group">
+                    				<label for="usr">Username:</label>
+  									<input type="text" class="form-control" id="usr">
+                            	</div>
+                        	</div><br/>
+                            <div class="col-md-2 col-centered">
+                        		<div class="input-group">
+                    				<label for="pwd">Password:</label>
+  									<input type="password" class="form-control" id="pwd">
+                            	</div>
+                        	</div>
+                    	</div>
+                        <br/><br/>
+                        <a href="profile.html" class="btn btn-primary btn-md"> Login </a>
+                    </div>
+   		        </div>
+                
+   		    </div>
+	   </div>
+       <br/>
     </div>
   </div>
 </div>
 
-<hr>
-
 
 <section class="well">
-<h2 class="text-center">Video Tutorial</h2>
+<h2 class="text-center">How it works</h2>
 <hr>
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
+      	<h4 class="text-center">
+        	Choose your favourite charities and how often to give, <br/>then go about your normal spending habits and we'll take care of the rest. <br/><br/>
+            It really is that simple!<br/>
+        </h4>
       </div>
     </div>
   </div>
 </section>
+
 <footer class="text-center">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <p>Copyright © 2015 BXT SENC. All rights reserved.</p>
+      <div class="col-xs-12" style="margin-bottom:10px;">
+        <p>Copyright © 2015 BXT SENC | All rights reserved.</p>
       </div>
     </div>
   </div>
