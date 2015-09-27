@@ -71,16 +71,7 @@ class PersonInfo: #(object):
 			o.write(charityName+','+dateString+','+str(amount)+',0\n')
 			o.close()
 
-	# TODO: Check validity
 	def setCardNum(self, cardnum):
-		# Imports
-#		sys.path.insert(0, mastercardApiPythonPath)
-#		p = 'mc_python_api.mastercard-api-python.Common'
-#		from mc_python_api.mastercard-api-python.common.Environment import environment
-#		from services.lost_stolen import loststolenservice
-	#	print("hi")
-		# Check validity
-
 		# Set card Number
 		self.cardNum = cardnum
 

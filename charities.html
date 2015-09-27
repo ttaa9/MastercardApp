@@ -12,6 +12,9 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 <script src="./lib/angular-strap-master/dist/angular-strap.min.js"></script>
 <script src="./lib/angular-strap-master/dist/angular-strap.tpl.min.js"></script>
+
+<script type="text/javascript"
+        src="https://www.simplify.com/commerce/simplify.pay.js"></script>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -109,11 +112,21 @@ myApp.controller('ctrl', function($scope, $http) {
   };
   browseThis();
   console.log($scope.browse[0]);
+  $scope.first='';
   $scope.category = '';
   $scope.browse2 = {health: $scope.health, education: $scope.education, environment: $scope.environment};
   $scope.$watch('selection.length', function() {
     //console.log($scope.selection.length);
     $scope.test=100/$scope.selection.length;
+    angular.forEach($scope.selection, function (val) {
+      var i = 0;
+      if (i == 0) {
+        $scope.first=val;
+        i++;
+      }
+    });
+    $scope.$apply;
+    console.log('here' + $scope.first.name);
   });
  // $scope.environment = <?php environment() ?>;
  // $scope.health = <?php health() ?>;
@@ -144,9 +157,7 @@ myApp.controller('ctrl', function($scope, $http) {
   $scope.fire2 = function(input) {
     var check = $scope.selection.indexOf(input);
     console.log(check);
-    if ($scope.result == '' || check > -1) {
-      alert('invalid input');
-    } else if (check == -1 && input.name != '') {
+ if (check == -1 && input.name != '') {
       $scope.selection.push(input);
       //$scope.result = '';
     } else {
@@ -188,8 +199,8 @@ myApp.controller('ctrl', function($scope, $http) {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li ><a href="index.html">Home </a> </li>
-        <li><a href="donations.html">Donation Manager</a> </li>
+         <li><a href="http://localhost:8000/PageGen.py?first=bob%40hotmail.com&last=password">Home </a> </li>
+        <li><a href="http://localhost:8000/readDon.py">Donation Manager</a> </li>
         <li class="active"><a href="#">Charity Settings <span class="sr-only">(current)</span></a> </li>
       </ul>
       <!--<ul class="nav navbar-nav navbar-right">
@@ -222,9 +233,9 @@ myApp.controller('ctrl', function($scope, $http) {
     </div>
   </div>
   <br>
-<div class="input-group input-group-sm">
+<div class="input-group input-group-sm ">
   <label>Categories</label><br>
-<ul class="nav nav-tabs nav-justified" id="Categories">
+<ul class="nav nav-tabs nav-justified centered" id="Categories">
   <li class="active"><a href="#1" data-toggle="tab">Health</a>
   </li>
   <li><a href="#2" data-toggle="tab">Education</a>
@@ -235,23 +246,23 @@ myApp.controller('ctrl', function($scope, $http) {
 <div class="tab-content">
     <div class="tab-pane active" id="1">
         <div class='row' ng-repeat='health2 in health'>
-          <br>
-         <div class="col-xs-4" ng-repeat="h in health2"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
+          <br><div class="col-xs-2"></div>
+         <div class="col-xs-3 center-block" ng-repeat="h in health2"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
          </div>
         </div>
         
     </div>
     <div class="tab-pane" id="2">
         <div class='row' ng-repeat='education2 in education'>
-          <br>
-         <div class="col-xs-4" ng-repeat="h in education2"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
+          <br><div class="col-xs-2"></div>
+         <div class="col-xs-3" ng-repeat="h in education2"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
          </div>
         </div>
     </div>
     <div class="tab-pane" id="3">
         <div class='row' ng-repeat='environment2 in environment'>
-          <br>
-         <div class="col-xs-4" ng-repeat="h in environment2"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
+          <br><div class="col-xs-2"></div>
+         <div class="col-xs-3" ng-repeat="h in environment2"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
          </div>
         </div>
     </div>     
@@ -259,11 +270,7 @@ myApp.controller('ctrl', function($scope, $http) {
 </div>
 <div class="input-group input-group-sm">
   <br>
-</form>
 
-<form style="visibility: hidden">
-</form>
-<form>
   <!--label>Recommendations:</label>
         <div class='row'>
           <br>
@@ -272,7 +279,7 @@ myApp.controller('ctrl', function($scope, $http) {
         </div-->
 
 
-
+<div class="centered">
   <label>Selections: </label>
   <div class='row'>
           <br>
@@ -280,11 +287,24 @@ myApp.controller('ctrl', function($scope, $http) {
           <input type='range' min='0' max='100' step='1' ng-model='test' style='width:200px' class='ng-pristine ng-valid'/>{{test | number:0}}%
          </div>
   </div>
+</div>
 <br><br>
-  <button class="btn-default btn-sm bottomright" ng-click='save()'>Save</button>
-  <button class="btn-default btn-sm bottomright" ng-click='cancel()'>Cancel</button>
+<div class="bottomright" style="padding-left:30px">
+  <button class="btn btn-primary btn-md bottom-right" ng-click='save()'>Save</button>
+  <button class="btn btn-danger btn-md bottom-right" ng-click='cancel()'>Discard</button>
+  <span style="display:inline-block; width: 350px"></span>
+<button data-sc-key="sbpb_OWEwZDkzYTMtYzE3MS00NmFkLTkwMzMtNGY5YzYwMjZjMzI2"
+        data-name=''
+        data-description="Donate this amount?"
+        data-reference="99999"
+        data-amount="3000"
+        data-color="#12B830"
+        data-masterpass="true"
+        data-receipt="true"
+        >
+        Give One-Time Payment
+</button> </div>
 </form>
-
 
 <hr>
 <footer class="text-center">
