@@ -35,6 +35,9 @@ class PersonInfo: #(object):
 			self.firstName = f[i+3]
 			self.lastName = f[i+4]
 			self.gender = f[i+5]
+			self.expMonth = f[i+6]
+			self.expYear = f[i+7]
+			self.cvc = f[i+8]
 			# Read in transaction history (line: charityName,amount)
 			f2 = open(fth,"r").readlines()
 			temp = [ k.strip().split(",") for k in f2]
@@ -51,6 +54,9 @@ class PersonInfo: #(object):
 			self.lastName = ""
 			self.transactionHistory = {}
 			self.gender = "Not Set"
+			self.expMonth = -1
+			self.expYear = -1
+			self.cvc = -1
 			self.level = getLevel(self.getTotalDonations())
 			# Write a new file
 			self.write()
@@ -70,7 +76,8 @@ class PersonInfo: #(object):
 
 	def toSettingsString(self):
 		return "\n".join([self.username, str(self.cardNum),
-			str(self.getTotalDonations()), self.firstName, self.lastName, self.gender])
+			str(self.getTotalDonations()), self.firstName, self.lastName,self.gender,
+			str(self.expMonth), str(self.expYear), str(self.cvc)])
 
 	def makeTransactionHistoryString(self):
 		ss = [ str(k[0]) + "," + str(k[1]) + "," + str(k[2]) for k in self.transactionHistory ]
@@ -143,26 +150,6 @@ class PersonInfo: #(object):
 		print(s)
 		return s
 
-		'''
-			      <tr>
-	        <td>MSF</td>
-	        <td>02/02/2015</td>
-	        <td>$4.53</td>
-	        <td>$24.53</td>
-	      </tr>
-	      <tr>
-	        <td>Japanese Tsunami Relief Fund</td>
-	        <td>02/09/2013</td>
-	        <td>$1.22</td>
-	        <td>$132.98</td>
-	      </tr>
-	      <tr>
-	        <td>UNICEF Syrian Crisis Fund</td>
-	        <td>11/09/2012</td>
-	        <td>$9.47</td>
-	        <td>$9.47</td>
-	      </tr>
-		'''
 
 
 
