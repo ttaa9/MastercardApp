@@ -2,7 +2,8 @@ import simplify
 from Person import PersonInfo
 from Person import *
 import time
-
+import requests
+import xml.etree.ElementTree as et
 
 # Settings
 NAME = "bob@hotmail.com"
@@ -16,7 +17,23 @@ def makePayment(name,amount,charityName):
     simplify.private_key = "VJcLMAVGrrhn7QbJPkUMONEB7rOz2+9OUqf4q3CL/xl5YFFQL0ODSXAOkNtXTToq"
     # Read in person's info
     p = PersonInfo(name)
-    
+
+    # Check for Fraud/Stolen
+    xml = '''<?xml version='1.0' encoding='utf-8'?>'''
+    body = '''<AccountInquiry><AccountNumber>'''+p.cardNum+'''</AccountNumber></AccountInquiry>'''
+    headers = {'content-type': 'application/xml', 'content-length': '{length}'}
+    path = '/fraud/loststolen/v1/account-inquiry?Format=XML'
+    results = requests.put('http://dmartin.org:8026/fraud/loststolen/v1/account-inquiry?Format=XML',
+        data=body,headers=headers)
+    print results.text
+    tree = et.fromstring(results.text)
+    for elem in tree.iter():
+        if elem.tag == "Listed":
+            if elem.text == "true":
+                print "Aborting transaction - Reported Card!"
+                return
+    print "Passed check" # May be due to server non-recognition
+
     # Create payment
     payment = simplify.Payment.create({
            "card" : {
