@@ -19,9 +19,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     <![endif]-->
-    <?php 
-    require_once read.php
-    ?>
 <script>
 function readit(){
   var file = './DB/health.csv'
@@ -75,7 +72,7 @@ myApp.controller('ctrl', function($scope, $http) {
   $scope.health = [[
   {name: 'Canadian Red Cross',desc: 'The Canadian Red Cross mission is to improve the lives of vulnerable people by mobilizing the power of humanity in Canada and around the world.',img: './img/imgDB/image1.jpg'},
   {name: "Alzheimer Society",desc: "The Alzheimer Society is the leading not-for-profit health organization working nationwide to improve the quality of life for Canadians affected by Alzheimer's disease and other dementias and advance the search for the cause and cure.", img:"./img/imgDB/image2.jpg"},
-  {name: "The Foundation of Fighting Blindness", desc:"The Foundation Fighting Blindness is leading the fight against blindness by advancing retinal disease research, education and public awareness.",img:'./img/imgDB/image3.jpg'}
+  {name: "The Foundation Fighting Blindness", desc:"The Foundation Fighting Blindness is leading the fight against blindness by advancing retinal disease research, education and public awareness.",img:'./img/imgDB/image3.jpg'}
   ],
   [{name: "American Foundation for Suicide Prevention",desc:"By educating the public they change the way people think and talk about suicide and mental illness. By educating leaders and communities, they help to shape new laws and policies.",img:"./img/imgDB/image4.jpg"},
   {name:"Breast Cancer Prevention Fund",desc:"The Breast Cancer Fund works to connect the dots between breast cancer and exposures to chemicals and radiation in our everyday environments.",img:"./img/imgDB/image5.jpg"},
@@ -173,6 +170,7 @@ myApp.controller('ctrl', function($scope, $http) {
 </script>
 </head>
 <body ng-app='myApp'>
+<div style="position:fixed;width:100%;">
 <nav class="navbar navbar-default navbar-inverse" style="border-radius:0px;">
   <div class="container-fluid"> 
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -184,8 +182,8 @@ myApp.controller('ctrl', function($scope, $http) {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li ><a href="index.html">Home </a> </li>
-        <li><a href="donations.html">Donation Manager</a> </li>
+        <li ><a href="http://localhost:8000/PageGen.py?first=bob%40hotmail.com&last=password">Home </a> </li>
+        <li><a href="http://localhost:8000/readDon.py">Donation Manager</a> </li>
         <li class="active"><a href="#">Charity Settings <span class="sr-only">(current)</span></a> </li>
       </ul>
       <!--<ul class="nav navbar-nav navbar-right">
@@ -197,12 +195,6 @@ myApp.controller('ctrl', function($scope, $http) {
   </div>
   <!-- /.container-fluid --> 
 </nav>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-12 intro-pic">
-       
-    </div>
-  </div>
 </div>
 
 <form class="form-horizontal" ng-controller='ctrl'>
@@ -221,7 +213,7 @@ myApp.controller('ctrl', function($scope, $http) {
 <div class="input-group input-group-sm">
   <label>Categories</label><br>
 <ul class="nav nav-tabs nav-justified" id="Categories">
-  <li><a href="#1" data-toggle="tab">Health</a>
+  <li class="active"><a href="#1" data-toggle="tab">Health</a>
   </li>
   <li><a href="#2" data-toggle="tab">Education</a>
   </li>
@@ -283,16 +275,14 @@ myApp.controller('ctrl', function($scope, $http) {
 </form>
 
 
-<hr>
-<footer class="text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <p>Copyright © 2015 BXT SENC. All rights reserved.</p>
+  <footer class="text-center">
+    <div class="container-fluid">
+        <div class="col-xs-12" style="margin-bottom:10px;">
+        <hr/>
+          <p>Copyright © 2015 BXT SENC. All rights reserved.</p>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="js/jquery-1.11.2.min.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
