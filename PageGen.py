@@ -120,7 +120,7 @@ else:
 	        </div>
 	        <div class="col-md-3 donation-text">
 	        	<div class="">
-	    			$'''+str(p.getTotalDonations())+'''CAD
+	    			$'''+str(p.getTotalDonations())+'''0 CAD
 	    			
 	  			</div>
 	        </div>
