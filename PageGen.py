@@ -115,10 +115,10 @@ else:
 	    </div>
 	    <br/>
 	  	<div id="total">
-	  		<div class="col-md-4 donation-text">
+	  		<div class="col-md-4 donation-text" style="z-index:-100;">
 	        	Total Donations To Date:
 	        </div>
-	        <div class="col-md-3 donation-text">
+	        <div class="col-md-3 donation-text" style="z-index:-100;">
 	        	<div class="">
 	    			$'''+str(p.getTotalDonations())+'''0 CAD
 	    			
@@ -147,6 +147,40 @@ else:
 	  </table>
 
 		<br/>
+	    <div id="bank-trans" style="margin-left:-100px;">
+	  		<div class="col-md-5 donation-text">
+	        	Card Transactions:     
+	        </div>
+	  	</div>
+		<div class="table-responsive" style="width:100%;">
+	    	<table class="table table-striped table-hover">
+	    <thead>
+	      <tr>
+	        <th>Merchant Name</th>
+	        <th>Purchase Date</th>
+	        <th>Purchase Amount</th>
+	        <th>Resulting Donation</th>
+	      </tr>
+	    </thead>
+
+	    <tbody> '''+p.genBankTransTable()+'''</tbody>
+
+	  </table>
+		<div style="margin-left:-100px;">
+	  		<div class="col-md-4 donation-text">
+	        	Upcoming Donation:
+	        </div>
+	        <div class="col-md-3 donation-text">
+	        	<div class="">
+	    			$'''+str(p.genUpcomingDonation())+'''0 CAD
+	    			
+	  			</div>
+	        </div>
+	  	</div>
+
+	    </div>
+	    <br/>
+	    <br/>
 		<img src="img/facebook.png" height="25px"/>
 		Link your Facebook
 
@@ -154,14 +188,12 @@ else:
 		<br/>
 		<img src="img/Twitter-icon.png.png" height="25px"/>
 		Link your Twitter
-
-	    </div>
 	  </div>
 	<br/>
 
 	<hr>
 	<footer class="text-center">
-	  <div class="container" style="padding-left:350px;">
+	  <div class="container-fluid">
 	      <div class="col-xs-12" style="margin-bottom:10px;">
 	        <p>Copyright © 2015 BXT SENC. All rights reserved.</p>
 	    </div>

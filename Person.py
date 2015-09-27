@@ -150,9 +150,26 @@ class PersonInfo: #(object):
 		print(s)
 		return s
 
+	def genBankTransTable(self):
+		with open('Data/bt-bob@hotmail.com.csv','r') as f:
+			table=""
+			for line in f:
+				parts = line.split(',')
+				table += "<tr>"
+				table += "<td>"+parts[0]+"</td>"
+				table += "<td>"+parts[1]+"</td>"
+				table += "<td>$"+parts[2]+"</td>"
+				table += "<td>$"+parts[3]+"</td>"
+				table += "</tr>"
+		return table
 
-
-
+	def genUpcomingDonation(self):
+		with open('Data/bt-bob@hotmail.com.csv','r') as f:
+			total=0
+			for line in f:
+				parts = line.split(',')
+				total+=float(parts[3])
+		return total
 
 ### Main Method (test) ###
 
