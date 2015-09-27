@@ -29,7 +29,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html">Home </a> </li>
+        <li><a href="profile.html">Home </a> </li>
         <li  class="active"><a href="#">Donation Manager <span class="sr-only">(current)</span></a> </li>
         <li><a href="charities.html">Charity Settings </a> </li>
       </ul>
@@ -42,14 +42,131 @@
   </div>
   <!-- /.container-fluid --> 
 </nav>
-<div class="container-fluid">
+<div id="user-info" class="container-fluid">
   <div class="row">
-    <div class="col-lg-12 intro-pic">
-       
+    <div class="gen-info">
+    	<div class="user-pic">
+       		<img src="img/gir.jpg" height="150px" id="user-pic"/>
+        </div>
+        <div class="user-info">
+        	Mr. Christian Wunsch <br/>
+            Giver <br/><br/>
+            Donations to next level:<br/>
+            <div class="progress" style="width:90%;margin-left:5%">
+            	<div class="progress-bar progress-bar-striped" 
+                	role="progressbar" aria-valuenow="50" 
+                    aria-valuemin="0" aria-valuemax="100" style="width:50%">
+    			50% to Kind Heart
+  				</div>
+  			</div>
+            <br/>
+            cwunsch@gmail.com
+            <br/><br/>
+            Card ending in: 4444
+        </div>
     </div>
   </div>
 </div>
-
+<div id="donation-info" class="content">
+  	<div class="row">
+  		<div class="title">
+    		Edit your Donation Settings
+    	</div>
+    </div>
+    <br/>
+  	<div id="amount" class="row">
+  		<div class="col-md-5 donation-text">
+        	Donation as percentage of spending:
+        </div>
+        <div class="col-md-3">
+        	<div class="input-group">
+    			<input type="text" class="form-control" value="1.0" style="width:50%;">
+  			</div>
+        </div>
+        <div class="col-md-1 optional">
+        	%
+        </div>
+  	</div>
+    <div id="maximum" class="row">
+  		<div class="col-md-5 donation-text">
+        	Maximum donation per cycle:        
+        </div>
+        <div class="col-md-3">
+        	<div class="input-group">
+    			<input type="text" class="form-control" value="" style="width:50%;">
+  			</div>
+        </div>
+        <div class="col-md-1 optional">
+        	(optional)
+        </div>
+  	</div>
+    <div id="minimum" class="row">
+  		<div class="col-md-5 donation-text">
+        	Minimum donation per cycle:        
+        </div>
+        <div class="col-md-3">
+        	<div class="input-group">
+    			<input type="text" class="form-control" value="" style="width:50%;">
+  			</div>
+        </div>
+        <div class="col-md-1 optional">
+        	(optional)
+        </div>
+  	</div>
+    <div id="cycle" class="row">
+  		<div class="col-md-5 donation-text">
+        	Cycle length:
+        </div>
+        <div class="col-md-3">
+        	<div class="input-group">
+    			<input type="text" class="form-control" value="2" style="width:50%;">
+  			</div>
+        </div>
+        <div class="col-md-1 drop">
+        	<div class="dropdown">
+  				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">week(s)
+  				<span class="caret"></span></button>
+  				<ul class="dropdown-menu">
+    				<li><a href="#">month(s)</a></li>
+    				<li><a href="#">year(s)</a></li>
+  				</ul>
+			</div>
+        </div>
+  	</div>
+    <div id="repeat" class="row">
+  		<div class="col-md-5 donation-text">
+        	Repeat Until:
+        </div>
+        <div class="col-md-3">
+        	<div class="input-group">
+    			<input type="text" class="form-control" value="01/2017" style="width:50%;">
+  			</div>
+        </div>
+  	</div>
+    <!--<div id="email" class="row">
+  		<div class="col-md-5 donation-text">
+        	Email Notification on Donation:
+        </div>
+        <div class="col-md-3">
+        	<div class="input-group">
+    			<input type="text" class="form-control" value="1.0%" style="width:50%;">
+  			</div>
+        </div>
+  	</div>-->
+    <div id="save-cancel" class="row">
+    	<div class="col-md-5 donation-text"> 
+        </div>
+        <div class="col-md-1"  style="margin-top:50px;">
+        	<div class="input-group">
+    			<button type="button" class="btn btn-default btn-md"> Save </button>
+  			</div>
+        </div>
+        <div class="col-md-1"  style="margin-top:50px;">
+        	<button type="button" class="btn btn-default btn-md"> Cancel </button>
+        </div>
+    </div>
+  </div>
+<br/>
 <hr>
 <footer class="text-center">
   <div class="container">
