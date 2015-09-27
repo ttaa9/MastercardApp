@@ -54,6 +54,7 @@
        			href="#collapseOne" style="text-decoration:none;">
                 <button type="button" class="btn btn-default btn-md"> Get Started </button></a>
        </div>
+	<form action="http://localhost:8000/PageGen.py" target="_blank">
        <div class="panel-group" id="accordion1" style="margin-bottom:50px;">
        		<div class="panel panel-default" style="background: none; border:none;">
        			<div id="collapseOne" class="panel-collapse collapse" >
@@ -62,27 +63,30 @@
                     		<div class="col-md-2 col-centered">
                         		<div class="input-group">
                     				<label for="usr">Username:</label>
-  									<input type="text" class="form-control first-page-form" id="usr">
+  									<input type="text" name="first" class="form-control" id="usr">
                             	</div>
                         	</div><br/>
                             <div class="col-md-2 col-centered">
                         		<div class="input-group">
                     				<label for="pwd">Password:</label>
-  									<input type="password" class="form-control first-page-form" id="pwd">
+  									<input type="password" name="last" class="form-control" id="pwd">
                             	</div>
                         	</div>
                     	</div>
                         <br/><br/>
 						<!--
                         <a href="profile.html" class="btn btn-primary btn-md"> Login </a>
-						-->
+						
 						<a href="http://localhost:8000/test_urlencode.py?first=Tristan&last=AA" class="btn btn-primary btn-md">Login</a>
-
+						-->
+						<input type="submit" class="btn btn-primary btn-md" value="Submit">
                     </div>
    		        </div>
                 
    		    </div>
 	   </div>
+	 
+	</form>
        <br/>
     </div>
   </div>
@@ -108,7 +112,6 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12" style="margin-bottom:10px;">
-      <hr/>
         <p>Copyright © 2015 BXT SENC | All rights reserved.</p>
       </div>
     </div>
