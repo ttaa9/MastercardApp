@@ -1,2 +1,5 @@
-Unicef,50.0
-BillGatesFoundation,180.0
+Unicef,02/02/15,50.0
+BillAndMelindaGatesFoundation,02/02/15,180.0
+Unicef,04/03/15,50.0
+BillAndMelindaGatesFoundation,05/03/15,180.0
+JapanTsunamiRelief,06/02/12,300
