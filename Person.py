@@ -11,7 +11,8 @@ mastercardApiPythonPath = "mc_python_api/mastercard-api-python"
 # Global Variables and Methods
 levels = collections.OrderedDict([(0,"Giver"), (20,"Good Samaritan"), 
 	(100,"Beginner Philanthropist"), (500,"Advanced Philanthropist"), 
-	(1000,"Angel"), (1000000,"Saint")])
+	(1000,"Angel"), (2500,"Healer of Woe"), (4000,"Bringer of Light"), 
+	(1000000,"Saint")])
 
 def getLevel(amount):
 	for i,key in enumerate(levels.keys()):
@@ -38,7 +39,7 @@ class PersonInfo: #(object):
 			self.expMonth = f[i+6]
 			self.expYear = f[i+7]
 			self.cvc = f[i+8]
-			# Read in transaction history (line: charityName,amount)
+			# Read in transaction history (line: charityName,date,amount)
 			f2 = open(fth,"r").readlines()
 			temp = [ k.strip().split(",") for k in f2]
 			self.transactionHistory = [ [t[0],t[1],float(t[2])] for t in temp ]
@@ -52,7 +53,7 @@ class PersonInfo: #(object):
 			self.totalDonations = 0
 			self.firstName = ""
 			self.lastName = ""
-			self.transactionHistory = {}
+			self.transactionHistory = []
 			self.gender = "Not Set"
 			self.expMonth = -1
 			self.expYear = -1
@@ -60,6 +61,12 @@ class PersonInfo: #(object):
 			self.level = getLevel(self.getTotalDonations())
 			# Write a new file
 			self.write()
+
+	def addTransaction(self,amount,charityName,dateString):
+		self.transactionHistory.append([charityName,dateString,float(amount)])
+		self.totalDonations = self.getTotalDonations()
+		self.level = getLevel(self.getTotalDonations())
+		self.write()
 
 	# TODO: Check validity
 	def setCardNum(self, cardnum):
