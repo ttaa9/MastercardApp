@@ -86,6 +86,7 @@ myApp.controller('ctrl', function($scope, $http) {
   ];
   //magic end
   //$scope.education = <?php education() ?>;
+  $scope.displayed=false;
   $scope.browse = [];
   var browseThis = function () {
     angular.forEach($scope.health, function (value){
@@ -122,8 +123,14 @@ myApp.controller('ctrl', function($scope, $http) {
         i++;
       }
     });
+    if ($scope.selection.length == 0) {
+      $scope.displayed=false;
+    } else {
+      $scope.displayed=true;
+    }
     $scope.$apply;
-    console.log('here' + $scope.first.name);
+    //console.log('here' + $scope.first.name);
+
   });
  // $scope.environment = <?php environment() ?>;
  // $scope.health = <?php health() ?>;
@@ -173,11 +180,11 @@ myApp.controller('ctrl', function($scope, $http) {
     }
   };  
   $scope.save = function () {
-    alert('saved information');
+    alert('Your choices of charities have been saved.');
   };
   $scope.cancel = function () {
     $scope.selection = [];
-    alert('canceled');
+    alert('Changes discarded.');
   };
   //$scope.$watch('selection');
 });
@@ -276,8 +283,8 @@ myApp.controller('ctrl', function($scope, $http) {
   <br/>
 
 
-<div class="container-fluid "  >
-  <div class="selections-title">Selections: </div>
+<div class="container-fluid ">
+  <div class="selections-title" ng-show="displayed">Selections: </div>
   <br/>
   <div class="col-md-4 pic-center" ng-repeat="h in selection">
 	<input type="image" src="{{h.img}}" title="{{h.desc}}" width="64" 
