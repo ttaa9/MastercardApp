@@ -6,15 +6,22 @@ import sys
 import httplib
 import urllib
 import requests
+import xml.etree.ElementTree as et
 
 xml = '''<?xml version='1.0' encoding='utf-8'?>'''
+body = '''<AccountInquiry><AccountNumber>5343434343434343</AccountNumber></AccountInquiry>'''
 body = '''<AccountInquiry><AccountNumber>5555555555554444</AccountNumber></AccountInquiry>'''
+
 headers = {'content-type': 'application/xml', 'content-length': '{length}'}
 path = '/fraud/loststolen/v1/account-inquiry?Format=XML'
 
 results = requests.put('http://dmartin.org:8026/fraud/loststolen/v1/account-inquiry?Format=XML',
 	data=body,headers=headers)
 print results.text
+tree = et.fromstring(results.text)
+#root = tree.getroot()
+for elem in tree.iter():
+    print elem.tag, elem.attrib, elem.text
 
 '''
 a = httplib.HTTPConnection('dmartin.org',8026)
