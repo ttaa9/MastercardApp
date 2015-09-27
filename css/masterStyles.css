@@ -97,3 +97,28 @@
 .slightly-bigger {
 	font-size:large;
 }
+
+.charity-title{
+	padding-top:75px;
+	margin:0px 0px 25px 25px;	
+	font-size:x-large;
+}
+
+.name-center{
+	margin:0px 0px 0px 0px;
+	text-align:center;
+}
+
+.no-marg {
+	margin:15px;
+}
+
+
+.selections-title{
+	margin:0px 0px 10px 25px;	
+	font-size:x-large;
+}
+
+.pic-center{
+	text-align:center;
+}

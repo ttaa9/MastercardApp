@@ -22,9 +22,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     <![endif]-->
-    <?php 
-    require_once read.php
-    ?>
 <script>
 function readit(){
   var file = './DB/health.csv'
@@ -78,13 +75,13 @@ myApp.controller('ctrl', function($scope, $http) {
   $scope.health = [[
   {name: 'Canadian Red Cross',desc: 'The Canadian Red Cross mission is to improve the lives of vulnerable people by mobilizing the power of humanity in Canada and around the world.',img: './img/imgDB/image1.jpg'},
   {name: "Alzheimer Society",desc: "The Alzheimer Society is the leading not-for-profit health organization working nationwide to improve the quality of life for Canadians affected by Alzheimer's disease and other dementias and advance the search for the cause and cure.", img:"./img/imgDB/image2.jpg"},
-  {name: "The Foundation of Fighting Blindness", desc:"The Foundation Fighting Blindness is leading the fight against blindness by advancing retinal disease research, education and public awareness.",img:'./img/imgDB/image3.jpg'}
+  {name: "The Foundation Fighting Blindness", desc:"The Foundation Fighting Blindness is leading the fight against blindness by advancing retinal disease research, education and public awareness.",img:'./img/imgDB/image3.jpg'}
   ],
   [{name: "American Foundation for Suicide Prevention",desc:"By educating the public they change the way people think and talk about suicide and mental illness. By educating leaders and communities, they help to shape new laws and policies.",img:"./img/imgDB/image4.jpg"},
   {name:"Breast Cancer Prevention Fund",desc:"The Breast Cancer Fund works to connect the dots between breast cancer and exposures to chemicals and radiation in our everyday environments.",img:"./img/imgDB/image5.jpg"},
   {name:"HopeHIV",desc:"We support children and young people in sub-Saharan Africa who have been orphaned or affected by HIV/AIDS. Rather than dismissing them as helpless victims, we believe they have the potential to lead change in their families, communities and countries and create a better future for Africa.",img:"./img/imgDB/image6.jpg"}],
   [{name:"Against Malaria Foundation",desc:"We fund anti-malaria nets specifically long-lasting insecticidal nets (LLINs), and work with distribution partners to ensure they are used. We track and report on net use and malaria case data.",img:"./img/imgDB/image7.jpg"},
-  {name: "The Global Alliance or Improved Nutrition",desc:"Around 3.5 billion people — half the people on the planet today — are malnourished. Each year, malnutrition kills 3.1 million children under the age of five and leaves 161 million stunted, trapping generations in lives of poverty and unfulfilled potential. The Global Alliance for Improved Nutrition (GAIN) is focused on finding solutions to end malnutrition within our lifetimes.",img: "./img/imgDB/image8.jpg"},
+  {name: "The Global Alliance for Improved Nutrition",desc:"Around 3.5 billion people — half the people on the planet today — are malnourished. Each year, malnutrition kills 3.1 million children under the age of five and leaves 161 million stunted, trapping generations in lives of poverty and unfulfilled potential. The Global Alliance for Improved Nutrition (GAIN) is focused on finding solutions to end malnutrition within our lifetimes.",img: "./img/imgDB/image8.jpg"},
   {name: "Deworm the World Initiative",desc:"Deworm the World, which supports government-led mass deworming in schools, and Dispensers for Safe Water, which provides chlorination services at rural water points to make water safe to drink, are excellent examples of the Evidence Action vision.",img:"./img/imgDB/image9.jpg"}]
   ];
   //magic end
@@ -187,7 +184,8 @@ myApp.controller('ctrl', function($scope, $http) {
 
 </script>
 </head>
-<body ng-app='myApp'>
+<body ng-app="myApp">
+<div style="position:fixed;width:100%;margin-bottom:50px;z-index:10000000;">
 <nav class="navbar navbar-default navbar-inverse" style="border-radius:0px;">
   <div class="container-fluid"> 
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -203,38 +201,32 @@ myApp.controller('ctrl', function($scope, $http) {
         <li><a href="http://localhost:8000/readDon.py">Donation Manager</a> </li>
         <li class="active"><a href="#">Charity Settings <span class="sr-only">(current)</span></a> </li>
       </ul>
-      <!--<ul class="nav navbar-nav navbar-right">
-        <li><a href="#profile">Profile</a> </li>
-        <li><a href="#">Logout</a> </li>
-      </ul>-->
     </div>
     <!-- /.navbar-collapse --> 
   </div>
   <!-- /.container-fluid --> 
 </nav>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-12 intro-pic">
-       
-    </div>
-  </div>
 </div>
 
-<form class="form-horizontal" ng-controller='ctrl'>
-  <div class="row">
-    <div class="col-md-1">
+<div class="charity-title">
+	Edit Charities To Donate To:
+</div>
+<form class="form-horizontal" ng-controller="ctrl">
+  <div class="container-fluid">
+    <div class="col-md-1 ">
       <label>Search:</label>
     </div>
     <div class="col-md-2">
-      <input class="form-control-sm" type="text" ng-model='result' bs-options="b.name for b in browse" bs-typeahead>
+      <input class="form-control-sm" type="text" ng-model="result" bs-options="b.name for b in browse" bs-typeahead>
     </div>
     <div class="col-md-4">
-      <button class="btn-default btn-sm" ng-click="fire(b)">Add!</button>
+      <button class="btn-primary btn-sm" ng-click="fire(b)">Add</button>
     </div>
   </div>
-  <br>
-<div class="input-group input-group-sm ">
-  <label>Categories</label><br>
+  <br/>
+    <div class=" container-fluid">
+<div class="input-group input-group-sm container-fluid">
+  <label>Categories</label><br/>
 <ul class="nav nav-tabs nav-justified centered" id="Categories">
   <li class="active"><a href="#1" data-toggle="tab">Health</a>
   </li>
@@ -245,75 +237,88 @@ myApp.controller('ctrl', function($scope, $http) {
 </ul>
 <div class="tab-content">
     <div class="tab-pane active" id="1">
-        <div class='row' ng-repeat='health2 in health'>
-          <br><div class="col-xs-2"></div>
-         <div class="col-xs-3 center-block" ng-repeat="h in health2"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
+        <div class="row" ng-repeat="health2 in health">
+          <br/>
+         <div class="col-xs-4 name-center" ng-repeat="h in health2"><input type="image" src="{{h.img}}" title="{{ h.desc}}" width="64" height="64" ng-click="fire2(h)"><br/>
+         
+         <div class="name-center no-marg">
+         {{h.name}}
+         </div>
          </div>
         </div>
         
     </div>
     <div class="tab-pane" id="2">
-        <div class='row' ng-repeat='education2 in education'>
-          <br><div class="col-xs-2"></div>
-         <div class="col-xs-3" ng-repeat="h in education2"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
+        <div class="row" ng-repeat="education2 in education">
+          <br/>
+         <div class="col-xs-4 name-center" ng-repeat="h in education2"><input type="image" src="{{h.img}}" title="{{ h.desc}}" width="64" height="64" ng-click="fire2(h)"><br/>
+         
+         <div class="name-center no-marg">
+         {{h.name}}
+         </div>
          </div>
         </div>
     </div>
     <div class="tab-pane" id="3">
-        <div class='row' ng-repeat='environment2 in environment'>
-          <br><div class="col-xs-2"></div>
-         <div class="col-xs-3" ng-repeat="h in environment2"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
+        <div class="row" ng-repeat="environment2 in environment">
+         <br/>
+         <div class="col-xs-4 name-center" ng-repeat="h in environment2"><input type="image" src="{{h.img}}" title="{{ h.desc}}" width="64" height="64" ng-click="fire2(h)">
+         <br/>
+         <div class="name-center no-marg">
+         {{h.name}}
+         </div>
          </div>
         </div>
     </div>     
 </div>
 </div>
-<div class="input-group input-group-sm">
-  <br>
-
-  <!--label>Recommendations:</label>
-        <div class='row'>
-          <br>
-         <div class="col-xs-4" ng-repeat="h in dummy"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
-         </div>
-        </div-->
-
-
-<div class="centered">
-  <label>Selections: </label>
-  <div class='row'>
-          <br>
-         <div class="col-xs-3" ng-repeat="h in selection"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='off(h)'><br>{{h.name}}
-          <input type='range' min='0' max='100' step='1' ng-model='test' style='width:200px' class='ng-pristine ng-valid'/>{{test | number:0}}%
-         </div>
-  </div>
 </div>
-<br><br>
-<div class="bottomright" style="padding-left:30px">
-  <button class="btn btn-primary btn-md bottom-right" ng-click='save()'>Save</button>
-  <button class="btn btn-danger btn-md bottom-right" ng-click='cancel()'>Discard</button>
-  <span style="display:inline-block; width: 350px"></span>
+  <br/>
+
+
+<div class="container-fluid "  >
+  <div class="selections-title">Selections: </div>
+  <br/>
+  <div class="col-md-4 pic-center" ng-repeat="h in selection">
+	<input type="image" src="{{h.img}}" title="{{h.desc}}" width="64" 
+		height="64" ng-click="off(h)">
+	<br/>
+	<div class="name-center no-marg">
+		{{h.name}}
+	</div>
+	<input type="range" min="0" max="100" step="1" ng-model="test" 
+    	style="width:50%;margin-left:25%;" class="ng-pristine ng-valid"/>
+	<div class="name-center no-marg">
+		{{test | number:0}}%
+	</div>
+    </div>
+  </div>
+<br/><br/>
+<div class="container-fluid" style="text-align:center;">
+  <button class="btn btn-success btn-lg" ng-click="save()">&nbsp;Save&nbsp;</button>
+  <button class="btn btn-danger btn-lg" ng-click="cancel()">Discard</button>
+  </div>
+  <div class="container-fluid" style="text-align:center;margin-top:25px;">
 <button data-sc-key="sbpb_OWEwZDkzYTMtYzE3MS00NmFkLTkwMzMtNGY5YzYwMjZjMzI2"
-        data-name=''
+        data-name=""
         data-description="Donate this amount?"
         data-reference="99999"
-        data-amount="3000"
-        data-color="#12B830"
+        data-amount="8000"
+        data-color="#104E8B"
         data-masterpass="true"
         data-receipt="true"
         >
         Give One-Time Payment
-</button> </div>
+</button> 
+</div>
 </form>
 
 <hr>
 <footer class="text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
+  <div class="container-fluid">
+      <div class="col-md-12" style="margin-bottom:10px;">
         <p>Copyright © 2015 BXT SENC. All rights reserved.</p>
       </div>
-    </div>
   </div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
