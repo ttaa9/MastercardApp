@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home</title>
+<title>Profile</title>
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 <link rel="stylesheet" href="css/masterStyles.css" type="text/css">
+<script src="js/masterscript.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,12 +39,28 @@
   </div>
   <!-- /.container-fluid --> 
 </nav>
-<div class="container-fluid">
+<div id="user-info" class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
-       <div class="gen-info">
-       		<img src="img/usr.png" />
-       </div>
+    <div class="gen-info">
+    	<div class="user-pic">
+       		<img src="img/gir.jpg" height="150px" id="user-pic"/>
+        </div>
+        <div class="user-info">
+        	Mr. Christian Wunsch <br/>
+            Giver <br/><br/>
+            Donations to next level:<br/>
+            <div class="progress" style="width:90%;margin-left:5%">
+            	<div class="progress-bar progress-bar-striped" 
+                	role="progressbar" aria-valuenow="50" 
+                    aria-valuemin="0" aria-valuemax="100" style="width:50%">
+    			50% to Kind Heart
+  				</div>
+  			</div>
+            <br/>
+            cwunsch@gmail.com
+            <br/><br/>
+            5555 xxxx xxxx 4444
+        </div>
     </div>
   </div>
 </div>
@@ -52,7 +69,7 @@
 
 
 <footer class="text-center">
-  <div class="container">
+  <div class="container" style="padding-left:350px;">
     <div class="row">
       <div class="col-xs-12" style="margin-bottom:10px;">
         <p>Copyright © 2015 BXT SENC. All rights reserved.</p>
