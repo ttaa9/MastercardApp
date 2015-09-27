@@ -67,6 +67,9 @@ class PersonInfo: #(object):
 		self.totalDonations = self.getTotalDonations()
 		self.level = getLevel(self.getTotalDonations())
 		self.write()
+		with open('Data/bt-bob@hotmail.com.csv','a') as o:
+			o.write(charityName+','+dateString+','+str(amount)+',0\n')
+			o.close()
 
 	# TODO: Check validity
 	def setCardNum(self, cardnum):
@@ -156,6 +159,29 @@ class PersonInfo: #(object):
 			s += "</tr>"
 		print(s)
 		return s
+
+	def genBankTransTable(self):
+		with open('Data/bt-bob@hotmail.com.csv','r') as f:
+			table=""
+			for line in f:
+				parts = line.split(',')
+				table += "<tr>"
+				table += "<td>"+parts[0]+"</td>"
+				table += "<td>"+parts[1]+"</td>"
+				table += "<td>$"+parts[2]+"</td>"
+				table += "<td>$"+parts[3]+"</td>"
+				table += "</tr>"
+		return table
+
+	def genUpcomingDonation(self):
+		with open('Data/bt-bob@hotmail.com.csv','r') as f:
+			total=0
+			for line in f:
+				parts = line.split(',')
+				total+=float(parts[3])
+		return total
+
+### Main Method (test) ###
 
 
 

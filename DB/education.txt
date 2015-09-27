@@ -1,0 +1,12 @@
+name,description,image
+Education without Borders, Education without Borders (EwB) aims to provide improved educational opportunities and facilities in disadvantaged regions of the world.,image11.jpeg
+Rose Charities,We raise money, resources and personnel to support Rose Charities projects that have strong local leadership and dedicated volunteers in communities around the world. We work with them as they find their own solutions to the problems of poverty.
+,image12.jpeg
+Teachers Across Borders, TAB brings master teachers from the U.S., Sweden, Australia and other countries to Cambodia and South Africa to help teachers who face enormous challenges including low pay, minimal facilities, class sizes of 75 or more, few materials and no teacher training.,image13.jpeg
+Africa Educational Trust, We are working for education for all in the face of conflict and poverty. Education is a right. It is also the most requested service, and key to helping communities move towards peace and prosperity.,image14.jpeg
+Canadian World Education Society, The Canadian World Education Society is a registered non­profit Canadian organization. We are committed to improving access and overcoming barriers to education in developing regions.,image15.jpeg
+Mon Sheong Foundation, The Mon Sheong Foundation is a Canadian registered charitable organization, dedicated to the promotion of Chinese culture, heritage, language and philosophy through caring for the elderly, encouraging the young and providing programs and services to meet the needs of our communities.,image16.jpeg
+The Money Minding Foundation, Our Mission is to equip people and communities to achieve sustainable economies by providing tools, education and training with a new money paradigm that leads to increased financial capacity.,image17.jpeg
+You Have It In You Foundation, Our mission is to love, protect and educate children, youth and women in vulnerable communities.,image18.jpeg
+Atlantic Youth, Atlantic Youth is a Nova Scotia based agency providing innovative youth support options for schools, families, communities and government agencies all across Canada.,image19.jpeg
+Pathways to Education, It works with high school students from low-income areas that have high dropout rates and helps them to transition into post-secondary education.,image20.jpeg

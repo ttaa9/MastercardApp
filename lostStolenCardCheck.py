@@ -3,8 +3,53 @@
 #		from mc_python_api.mastercard-api-python.common.Environment import environment
 #		from services.lost_stolen import loststolenservice
 import sys
-sys.path.append('C:/Users/Tristan/MasterCardApp/mastercard-api-python/Services/lost_stolen')
-sys.path.append('C:/Users/Tristan/MasterCardApp/mastercard-api-python/Common/')
+import httplib
+import urllib
+import requests
 
-from common import environment
+xml = '''<?xml version='1.0' encoding='utf-8'?>'''
+body = '''<AccountInquiry><AccountNumber>5555555555554444</AccountNumber></AccountInquiry>'''
+headers = {'content-type': 'application/xml', 'content-length': '{length}'}
+path = '/fraud/loststolen/v1/account-inquiry?Format=XML'
+
+results = requests.put('http://dmartin.org:8026/fraud/loststolen/v1/account-inquiry?Format=XML',
+	data=body,headers=headers)
+print results.text
+
+'''
+a = httplib.HTTPConnection('dmartin.org',8026)
+a.request('PUT',path,body=body,headers=headers)#,body=body,headers=headers)
+c = a.getresponse()
+print c.read()
+print c.status
+'''
+'''
+import urllib2
+opener = urllib2.build_opener(urllib2.HTTPHandler)
+request = urllib2.Request('http://dmartin.org:8026/fraud/loststolen/v1/account-inquiry?Format=XML', data=body)
+request.add_header('Content-Type', 'application/xml')
+request.add_header('Content-length', 1) #'{length}')
+request.get_method = lambda: 'PUT'
+#url = opener.open(request)
+response = urllib2.urlopen(request)
+'''
+'''
+connection = httplib.HTTPConnection('dmartin.org',8026) # httplib.HTTPConnection('1.2.3.4:1234')
+#body_content = 'BODY CONTENT GOES HERE'
+connection.request('PUT', path, body) #_content)
+result = connection.getresponse()
+'''
+'''
+PUT
+https://api.mastercard.com/fraud/loststolen/v1/account-inquiry?Format=XML
+
+Headers:
+content-type: application/xml
+content-length: {length}
+
+Body:
+<AccountInquiry>
+	<AccountNumber>5343434343434343</AccountNumber>
+</AccountInquiry>
+'''
 

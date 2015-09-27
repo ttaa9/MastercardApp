@@ -3,6 +3,7 @@ from Person import PersonInfo
 from Person import *
 import time
 
+
 # Settings
 NAME = "bob@hotmail.com"
 AMOUNTS = ["332", "431"]
@@ -15,6 +16,7 @@ def makePayment(name,amount,charityName):
     simplify.private_key = "VJcLMAVGrrhn7QbJPkUMONEB7rOz2+9OUqf4q3CL/xl5YFFQL0ODSXAOkNtXTToq"
     # Read in person's info
     p = PersonInfo(name)
+    
     # Create payment
     payment = simplify.Payment.create({
            "card" : {

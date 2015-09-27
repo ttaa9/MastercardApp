@@ -3,3 +3,8 @@ Bill and Melinda Gates Foundation,02/02/15,180.0
 Unicef,04/03/15,50.0
 Bill and Melinda Gates Foundation,05/03/15,180.0
 Japan Tsunami Relief,06/02/12,300.0
+Fukushima Rebuilding Fund,09/27/2015,332.0
+Fukushima Rebuilding Fund,09/27/2015,332.0
+Japan Tsunami Relief,09/27/2015,431.0
+Fukushima Rebuilding Fund,09/27/2015,332.0
+Japan Tsunami Relief,09/27/2015,431.0
