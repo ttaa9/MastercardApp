@@ -1,3 +1,3 @@
-from . import connector
-from . import oauthparameters
-from . import oauthconstants
+from . import Connector
+from . import OAuthParameters
+from . import OAuthConstants

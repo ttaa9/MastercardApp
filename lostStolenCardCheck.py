@@ -25,10 +25,17 @@ print c.status
 '''
 '''
 import urllib2
+import sys
+import httplib
+
+xml = '''<?xml version='1.0' encoding='utf-8'?>'''
+body = '''<AccountInquiry><AccountNumber>5343434343434343</AccountNumber></AccountInquiry>'''
+headers = {'content-type': 'application/xml', 'content-length': '{length}'}
+path = '/fraud/loststolen/v1/account-inquiry?Format=XML'
 opener = urllib2.build_opener(urllib2.HTTPHandler)
 request = urllib2.Request('http://dmartin.org:8026/fraud/loststolen/v1/account-inquiry?Format=XML', data=body)
-request.add_header('Content-Type', 'application/xml')
-request.add_header('Content-length', 1) #'{length}')
+request.add_header('content-Type', 'application/xml')
+#request.add_header('content-length', 8) #'{length}')
 request.get_method = lambda: 'PUT'
 #url = opener.open(request)
 response = urllib2.urlopen(request)

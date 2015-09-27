@@ -144,9 +144,7 @@ myApp.controller('ctrl', function($scope, $http) {
   $scope.fire2 = function(input) {
     var check = $scope.selection.indexOf(input);
     console.log(check);
-    if ($scope.result == '' || check > -1) {
-      alert('invalid input');
-    } else if (check == -1 && input.name != '') {
+ if (check == -1 && input.name != '') {
       $scope.selection.push(input);
       //$scope.result = '';
     } else {
