@@ -1,2 +1,2 @@
-Unicef,50
-BillGatesFoundation,180
+Unicef,50.0
+BillGatesFoundation,180.0

@@ -1,10 +1,12 @@
 import os,sys,collections
 
+
 # Settings
-datapath = "../Data"
+datapath = "Data"
 transacHistoryAffixes = ["th-", ".txt"]
 settingsAffixes = ["settings-", ".txt"]
 accountsFile = "accounts.csv"
+mastercardApiPythonPath = "mc_python_api/mastercard-api-python"
 
 # Global Variables and Methods
 levels = collections.OrderedDict([(0,"Kind Person"), (20,"Good Samaritan"), 
@@ -14,8 +16,6 @@ levels = collections.OrderedDict([(0,"Kind Person"), (20,"Good Samaritan"),
 def getLevel(amount):
 	for i,key in enumerate(levels.keys()):
 		if amount < key: return levels.values()[i-1]
-
-print("reading")
 
 # Account class
 class PersonInfo: #(object):
@@ -27,18 +27,20 @@ class PersonInfo: #(object):
 		fth = os.path.join(datapath, transacHistoryAffixes[0] + username + transacHistoryAffixes[1])
 		if os.path.isfile(fs):
 			# Read in settings
-			self.username = username
-			f = open(fs,"r").readlines()
-			self.cardNum = f[0]
-			self.totalDonations = f[1]
+			i=0
+			self.username = f[i]
+			f = [p.strip() for p in open(fs,"r").readlines()]
+			self.cardNum = f[i+1]
+			self.totalDonations = f[i+2]
 			self.level = getLevel(self.totalDonations)
-			self.firstName = f[2]
-			self.lastName = f[3]
+			self.firstName = f[i+3]
+			self.lastName = f[i+4]
 			# Read in transaction history (line: charityName,amount)
 			f2 = open(fth,"r").readlines()
 			temp = [ k.strip().split(",") for k in f2]
 			self.transactionHistory = [ [t[0], float(t[1])] for t in temp ]
 		else:
+			print(fs)
 			assert False, "New account Capability Turned Off"
 			# Fill in defaults
 			self.username = username
@@ -53,8 +55,14 @@ class PersonInfo: #(object):
 
 	# TODO: Check validity
 	def setCardNum(self, cardnum):
+		# Imports
+#		sys.path.insert(0, mastercardApiPythonPath)
+#		p = 'mc_python_api.mastercard-api-python.Common'
+#		from mc_python_api.mastercard-api-python.common.Environment import environment
+#		from services.lost_stolen import loststolenservice
+		print("hi")
 		# Check validity
-		# ...............
+
 		# Set card Number
 		self.cardNum = cardnum
 
@@ -69,8 +77,8 @@ class PersonInfo: #(object):
 	# Writes "person" object to files
 	def write(self):
 		# Write Settings
-		fs = settingsAffixes[0]+self.username+settingsAffixes[1]
-		fth = transacHistoryAffixes[0]+self.username+transacHistoryAffixes[1]
+		fs = os.path.join(datapath, settingsAffixes[0] + self.username + settingsAffixes[1])
+		fth = os.path.join(datapath, transacHistoryAffixes[0] + self.username + transacHistoryAffixes[1])
 		setFile = open(fs,"w")
 		setFile.write(self.toSettingsString())
 		setFile.close()
