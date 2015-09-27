@@ -9,6 +9,7 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 <link rel="stylesheet" href="css/masterStyles.css" type="text/css">
+<script type="text/javascript" src="https://www.simplify.com/commerce/v1/simplify.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,14 +68,52 @@
     </div>
   </div>
 </div>
+<!--<form id="simplify-payment-form" action="" method="POST">
+    <div>
+        <label>Credit Card Number: </label>
+        <input id="cc-number" type="text" maxlength="20" autocomplete="off" value="" autofocus />
+    </div>
+    <div>
+        <label>CVC: </label>
+        <input id="cc-cvc" type="text" maxlength="4" autocomplete="off" value=""/>
+    </div>
+    <div>
+        <label>Expiry Date: </label>
+        <select id="cc-exp-month">
+            <option value="01">Jan</option>
+            <option value="02">Feb</option>
+            <option value="03">Mar</option>
+            <option value="04">Apr</option>
+            <option value="05">May</option>
+            <option value="06">Jun</option>
+            <option value="07">Jul</option>
+            <option value="08">Aug</option>
+            <option value="09">Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+        </select>
+        <select id="cc-exp-year">
+            <option value="13">2013</option>
+            <option value="14">2014</option>
+            <option value="15">2015</option>
+            <option value="16">2016</option>
+            <option value="17">2017</option>
+            <option value="18">2018</option>
+            <option value="19">2019</option>
+            <option value="20">2020</option>
+            <option value="21">2021</option>
+            <option value="22">2022</option>
+        </select>
+    </div>
+    <button id="process-payment-btn" type="submit">Process Payment</button>
+</form>-->
 <div id="donation-info" class="content">
-  	<div class="row">
-  		<div class="title">
-    		Edit your Donation Settings
-    	</div>
+  	<div class="title">
+    	Edit your Donation Settings
     </div>
     <br/>
-  	<div id="amount" class="row">
+  	<div id="amount">
   		<div class="col-md-5 donation-text">
         	Donation as percentage of spending:
         </div>
@@ -87,7 +126,7 @@
         	%
         </div>
   	</div>
-    <div id="maximum" class="row">
+    <div id="maximum">
   		<div class="col-md-5 donation-text">
         	Maximum donation per cycle:        
         </div>
@@ -100,7 +139,7 @@
         	(optional)
         </div>
   	</div>
-    <div id="minimum" class="row">
+    <div id="minimum">
   		<div class="col-md-5 donation-text">
         	Minimum donation per cycle:        
         </div>
@@ -113,7 +152,7 @@
         	(optional)
         </div>
   	</div>
-    <div id="cycle" class="row">
+    <div id="cycle">
   		<div class="col-md-5 donation-text">
         	Cycle length:
         </div>
@@ -133,7 +172,7 @@
 			</div>
         </div>
   	</div>
-    <div id="repeat" class="row">
+    <div id="repeat">
   		<div class="col-md-5 donation-text">
         	Repeat Until:
         </div>
@@ -143,17 +182,55 @@
   			</div>
         </div>
   	</div>
-    <!--<div id="email" class="row">
+    <div id="email">
   		<div class="col-md-5 donation-text">
         	Email Notification on Donation:
         </div>
-        <div class="col-md-3">
-        	<div class="input-group">
-    			<input type="text" class="form-control" value="1.0%" style="width:50%;">
-  			</div>
+        <div class="col-md-3 donation-text">
+        	<div class="dropdown">
+  				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">yes
+  				<span class="caret"></span></button>
+  				<ul class="dropdown-menu">
+    				<li><a href="#">no</a></li>
+  				</ul>
+			</div>
         </div>
-  	</div>-->
-    <div id="save-cancel" class="row">
+  	</div>
+    <div id="facebook">
+  		<div class="col-md-5 donation-text">
+        	Facebook Auto Post on Donation:
+        </div>
+        <div class="col-md-2 donation-text">
+        	<div class="dropdown">
+  				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">yes
+  				<span class="caret"></span></button>
+  				<ul class="dropdown-menu">
+    				<li><a href="#">no</a></li>
+  				</ul>
+			</div>
+        </div>
+        <div class="col-md-2 optional">
+        	<a href="#">edit auto post</a>
+        </div>
+  	</div>
+    <div id="twitter">
+  		<div class="col-md-5 donation-text">
+        	Twitter Auto Tweet on Donation:
+        </div>
+        <div class="col-md-2 donation-text">
+        	<div class="dropdown">
+  				<button class="btn dropdown-toggle" type="button" data-toggle="dropdown">no
+  				<span class="caret"></span></button>
+  				<ul class="dropdown-menu">
+    				<li><a href="#">yes</a></li>
+  				</ul>
+			</div>
+        </div>
+        <div class="col-md-2 optional">
+        	<a href="#">edit auto tweet</a>
+        </div>
+  	</div>
+    <div id="save-cancel" >
     	<div class="col-md-5 donation-text"> 
         </div>
         <div class="col-md-1"  style="margin-top:50px;">
@@ -167,11 +244,11 @@
     </div>
   </div>
 <br/>
-<hr>
 <footer class="text-center">
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
+		<hr>
         <p>Copyright © 2015 BXT SENC. All rights reserved.</p>
       </div>
     </div>
