@@ -1,4 +1,4 @@
-#!C:\Users\Tristan\Anaconda\python.exe -u
+#!/Library/Frameworks/Python.framework/Versions/2.7/bin/python
 # -*- coding: UTF-8 -*-
 
 from Person import PersonInfo
@@ -62,32 +62,38 @@ else:
 	    <![endif]-->
 	</head>
 	<body>
-	<nav class="navbar navbar-default navbar-inverse" style="border-radius:0px;">
-	  <div class="container-fluid"> 
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-	      <div class="proj-name"><img src="img/mc.png" height="25px"/> Spend to Save</div> 
-	    </div>
-	    
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav navbar-right">
-	        <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a> </li>
-	        <li><a href="donations.html">Donation Manager</a> </li>
-	        <li><a href="charities.html">Charity Settings</a> </li>
-	      </ul>
-	    </div>
-	    <!-- /.navbar-collapse --> 
-	  </div>
-	  <!-- /.container-fluid --> 
-	</nav>
-	<div id="user-info" class="container-fluid">
-	  <div class="row">
-	    <div class="gen-info">
-	    	<div class="user-pic">
-	       		<img src="img/gir.jpg" height="150px" id="user-pic"/>
-	        </div>
+	<div style="position:fixed;width:100%;">
+<nav class="navbar navbar-default navbar-inverse" style="border-radius:0px;">
+  <div class="container-fluid"> 
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <div class="proj-name"><img src="img/mc.png" height="25px"/> Spend to Save</div> 
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a> </li>
+        <li><a href="http://localhost:8000/readDon.py">Donation Manager </a> </li>
+        <li><a href="charities.html">Charity Settings </a> </li>
+      </ul>
+      <!--<ul class="nav navbar-nav navbar-right">
+        <li><a href="#profile">Profile</a> </li>
+        <li><a href="#">Logout</a> </li>
+      </ul>-->
+    </div>
+    <!-- /.navbar-collapse --> 
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+</div>
+<div id="user-info" class="container-fluid">
+  <div class="row">
+    <div class="gen-info">
+    	<div class="user-pic">
+       		<img src="img/gir.jpg" height="150px" id="user-pic"/>
+        </div>
 	        <div class="user-info"> '''+str(p.firstName)+" "+str(p.lastName)+'''
 	        	<br/>''' + str(p.level) + ''' <br/><br/>
 	            Donations to next level:<br/>
@@ -104,12 +110,11 @@ else:
 	</div>
 
 	<div id="donation-info" class="content">
-	  	<div class="row">
-	  		<div class="title">
-	    		Welcome '''+('Mr. ' if p.gender=='M' else 'Ms. ')+p.lastName+'''</div>
+	  	<div class="title">
+	    		Welcome '''+('Mr. ' if p.gender=='M' else 'Ms. ')+p.lastName+'''
 	    </div>
 	    <br/>
-	  	<div id="total" class="row">
+	  	<div id="total">
 	  		<div class="col-md-4 donation-text">
 	        	Total Donations To Date:
 	        </div>
@@ -120,7 +125,7 @@ else:
 	  			</div>
 	        </div>
 	  	</div>
-	    <div id="charities-helped" class="row">
+	    <div id="charities-helped">
 	  		<div class="col-md-5 donation-text">
 	        	Charities Donated to:      
 	        </div>
@@ -141,12 +146,12 @@ else:
 
 	  </table>
 
-		<br>
+		<br/>
 		<img src="img/facebook.png" height="25px"/>
 		Link your Facebook
 
-
-		<br>
+		<br/>
+		<br/>
 		<img src="img/Twitter-icon.png.png" height="25px"/>
 		Link your Twitter
 
@@ -157,10 +162,8 @@ else:
 	<hr>
 	<footer class="text-center">
 	  <div class="container" style="padding-left:350px;">
-	    <div class="row">
 	      <div class="col-xs-12" style="margin-bottom:10px;">
 	        <p>Copyright © 2015 BXT SENC. All rights reserved.</p>
-	      </div>
 	    </div>
 	  </div>
 	</footer>
