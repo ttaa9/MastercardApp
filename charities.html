@@ -7,8 +7,8 @@
 <title>Charity Settings</title>
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-<link rel="stylesheet" href="css/masterStyles.css" type="text/css">
+<link rel="stylesheet" href="./css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="./css/masterStyles.css" type="text/css">
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 <script src="./lib/angular-strap-master/dist/angular-strap.min.js"></script>
 <script src="./lib/angular-strap-master/dist/angular-strap.tpl.min.js"></script>
@@ -131,7 +131,9 @@ myApp.controller('ctrl', function($scope, $http) {
         check = -1;
       }
     });
-    if (check == -1 && $scope.result != '') {
+    if ($scope.result == '' || check > -1) {
+      alert('invalid input');
+    } else if (check == -1 && $scope.result != '') {
       $scope.selection.push($scope.result);
       //console.log(xx);
       $scope.result = '';
@@ -142,7 +144,9 @@ myApp.controller('ctrl', function($scope, $http) {
   $scope.fire2 = function(input) {
     var check = $scope.selection.indexOf(input);
     console.log(check);
-    if (check == -1 && input.name != '') {
+    if ($scope.result == '' || check > -1) {
+      alert('invalid input');
+    } else if (check == -1 && input.name != '') {
       $scope.selection.push(input);
       //$scope.result = '';
     } else {
@@ -208,20 +212,20 @@ myApp.controller('ctrl', function($scope, $http) {
 <form class="form-horizontal" ng-controller='ctrl'>
   <div class="row">
     <div class="col-md-1">
-    <label>Search:</label>
-  </div>
+      <label>Search:</label>
+    </div>
     <div class="col-md-2">
-    <input class="form-control form-control-sm" type="text" ng-model='result' bs-options="b.name for b in browse" bs-typeahead>
-  </div>
-  <div class="col-md-6">
-    <button class="btn-default btn-sm" ng-click="fire(b)">Add!</button>
-  </div>
+      <input class="form-control-sm" type="text" ng-model='result' bs-options="b.name for b in browse" bs-typeahead>
+    </div>
+    <div class="col-md-4">
+      <button class="btn-default btn-sm" ng-click="fire(b)">Add!</button>
+    </div>
   </div>
   <br>
 <div class="input-group input-group-sm">
   <label>Categories</label><br>
 <ul class="nav nav-tabs nav-justified" id="Categories">
-  <li><a href="#1" data-toggle="tab">Health</a>
+  <li class="active"><a href="#1" data-toggle="tab">Health</a>
   </li>
   <li><a href="#2" data-toggle="tab">Education</a>
   </li>
@@ -229,8 +233,7 @@ myApp.controller('ctrl', function($scope, $http) {
   </li>
 </ul>
 <div class="tab-content">
-    <div class="tab-pane" id="1">
-     
+    <div class="tab-pane active" id="1">
         <div class='row' ng-repeat='health2 in health'>
           <br>
          <div class="col-xs-4" ng-repeat="h in health2"><input type='image' src='{{h.img}}' title='{{ h.desc}}' width="48" height="48" ng-click='fire2(h)'><br>{{h.name}}
