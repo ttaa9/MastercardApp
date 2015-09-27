@@ -67,6 +67,9 @@ class PersonInfo: #(object):
 		self.totalDonations = self.getTotalDonations()
 		self.level = getLevel(self.getTotalDonations())
 		self.write()
+		with open('Data/bt-bob@hotmail.com.csv','a') as o:
+			o.write(charityName+','+dateString+','+str(amount)+',0\n')
+			o.close()
 
 	# TODO: Check validity
 	def setCardNum(self, cardnum):
